@@ -32,4 +32,10 @@ struct IndexedItem{
     url: String,
 }
 
+#[derive(Serialize, Deserialize)]
+struct Indexed{
+    corpus: Vec<IndexedItem>,
+    links: Vec<String>,
+}
+
 fn main() {}
