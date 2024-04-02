@@ -24,6 +24,12 @@ struct Note{
     content: String,
 }
 
-fn main() {
-    println!("Hello, world!");
+#[derive(Serialize, Deserialize)]
+struct IndexedItem{
+    body: String,
+    id: u16,
+    title: String,
+    url: String,
 }
+
+fn main() {}
