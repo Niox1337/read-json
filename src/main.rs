@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
@@ -36,6 +37,13 @@ struct IndexedItem{
 struct Indexed{
     corpus: Vec<IndexedItem>,
     links: Vec<String>,
+}
+
+#[derive(Serialize, Deserialize)]
+struct File{
+    notes: Vec<Note>,
+    tasks: HashMap<String, Task>,
+    indexed: Vec<Indexed>
 }
 
 fn main() {}
