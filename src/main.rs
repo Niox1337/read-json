@@ -1,3 +1,9 @@
+/*
+This program is written by Zhixiang Feng (Niox). The json data should come from
+the Chrome extension Hawk - Page Indexer
+ */
+
+
 use std::collections::HashMap;
 use serde::{Deserialize, Serialize};
 
