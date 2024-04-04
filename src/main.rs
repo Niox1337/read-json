@@ -53,6 +53,7 @@ struct File{
     all_last_titles: HashMap<String, Vec<String>>,
     allowed_regex: Vec<String>,
     allowed_sites: Vec<String>,
+    allowed_string_matches: Vec<String>,
 }
 
 fn main() {}
