@@ -49,7 +49,9 @@ struct Indexed{
 struct File{
     notes: Vec<Note>,
     tasks: HashMap<String, Task>,
-    indexed: Vec<Indexed>
+    indexed: Vec<Indexed>,
+    all_last_titles: HashMap<String, Vec<String>>,
+    allowed_regex: Vec<String>,
 }
 
 fn main() {}
