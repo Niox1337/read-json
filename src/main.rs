@@ -10,19 +10,19 @@ use std::io;
 
 #[derive(Serialize, Deserialize, Debug)]
 struct Tag{
-    color: String,
-    name: String,
+    tagColour: String,
+    tagName: String,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 struct Task{
     id: String,
     title: String,
-    tags: Vec<Tag>,
+    tags: Vec<String>,
     description: String,
     due: String,
-    recently_deleted: bool,
-    scheduled_deletion: String,
+    recentlyDeleted: bool,
+    scheduledDeletion: String,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -50,13 +50,13 @@ struct Indexed{
 struct File{
     notes: Vec<Note>,
     tasks: HashMap<String, Task>,
-    indexed: Vec<Indexed>,
-    all_last_titles: HashMap<String, Vec<String>>,
-    allowed_regex: Vec<String>,
-    allowed_sites: Vec<String>,
-    allowed_string_matches: Vec<String>,
-    allowed_urls: Vec<String>,
-    tags: Vec<Tag>,
+    indexed: Indexed,
+    allLastTitles: HashMap<String, Vec<String>>,
+    allowedRegex: Vec<String>,
+    allowedSites: Vec<String>,
+    allowedStringMatches: Vec<String>,
+    allowedURLs: Vec<String>,
+    tags: HashMap<String, Tag>,
 }
 
 fn parse_json(file_name: &str) -> File{
