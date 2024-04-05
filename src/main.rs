@@ -55,6 +55,7 @@ struct File{
     allowed_sites: Vec<String>,
     allowed_string_matches: Vec<String>,
     allowed_urls: Vec<String>,
+    tags: Vec<Tag>,
 }
 
 fn main() {}
