@@ -6,6 +6,7 @@ the Chrome extension Hawk - Page Indexer
 
 use std::collections::HashMap;
 use serde::{Deserialize, Serialize};
+use std::io;
 
 #[derive(Serialize, Deserialize)]
 struct Tag{
@@ -58,4 +59,7 @@ struct File{
     tags: Vec<Tag>,
 }
 
-fn main() {}
+fn main() {
+    let mut file_name = String::new();
+    io::stdin().read_line(&mut file_name).expect("Failed to read file name");
+}
