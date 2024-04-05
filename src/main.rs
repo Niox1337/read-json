@@ -59,6 +59,12 @@ struct File{
     tags: Vec<Tag>,
 }
 
+fn parse_json(file_name: &str) -> File{
+    let file = std::fs::read_to_string(file_name).expect("Failed to read file");
+    let file: File = serde_json::from_str(&file).expect("Failed to parse json");
+    file
+}
+
 fn main() {
     let mut file_name = String::new();
     io::stdin().read_line(&mut file_name).expect("Failed to read file name");
