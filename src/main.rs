@@ -8,13 +8,13 @@ use std::collections::HashMap;
 use serde::{Deserialize, Serialize};
 use std::io;
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 struct Tag{
     color: String,
     name: String,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 struct Task{
     id: String,
     title: String,
@@ -25,14 +25,14 @@ struct Task{
     scheduled_deletion: String,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 struct Note{
     id: String,
     title: String,
     content: String,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 struct IndexedItem{
     body: String,
     id: u16,
@@ -40,13 +40,13 @@ struct IndexedItem{
     url: String,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 struct Indexed{
     corpus: Vec<IndexedItem>,
     links: Vec<String>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 struct File{
     notes: Vec<Note>,
     tasks: HashMap<String, Task>,
@@ -68,4 +68,7 @@ fn parse_json(file_name: &str) -> File{
 fn main() {
     let mut file_name = String::new();
     io::stdin().read_line(&mut file_name).expect("Failed to read file name");
+    let file_name = file_name.trim();
+    let file = parse_json(file_name);
+    println!("{:?}", file);
 }
